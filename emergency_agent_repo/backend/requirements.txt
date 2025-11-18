@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+httpx
+sqlalchemy
+alembic
+psycopg2-binary
+python-dotenv
+cryptography
+twilio
+google-cloud-tasks
+google-cloud-storage
+google-cloud-vertex-ai
+firebase-admin
+jinja2

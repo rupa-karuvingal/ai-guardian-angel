@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Emergency Demo</title></head>
+<body>
+  <h3>Emergency Demo Client</h3>
+  <textarea id="text" placeholder="Describe emergency..." rows="4" cols="50"></textarea><br/>
+  <button id="send">Send Emergency</button>
+  <pre id="out"></pre>
+<script>
+document.getElementById('send').onclick = async () => {
+  const text = document.getElementById('text').value;
+  const res = await fetch('/api/emergency', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({
+      user_id: 'demo-user',
+      text,
+      lat: 12.9716,
+      lon: 77.5946,
+      contacts: [{phone:'+911234567890'}]
+    })
+  });
+  const body = await res.json();
+  document.getElementById('out').textContent = JSON.stringify(body, null, 2);
+}
+</script>
+</body>
+</html>
